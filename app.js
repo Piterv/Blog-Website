@@ -9,7 +9,10 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 const app = express();
 // view engine setup
 app.set("view engine", "ejs");
-
+// Use body-parser
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 app.get("/", function(req, res) {
   res.render("home", {
@@ -29,11 +32,16 @@ app.get("/contact", function(req, res) {
   });
 });
 
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+app.get("/compose", function(req, res){
+  res.render("compose");
+});
+
 //Set public folder.
 app.use(express.static("public"));
+
+app.post("/compose",function(req, res){
+    console.log(req.body.postTitle);
+});
 
 app.post("/about", function(req, res){
   console.log(req);
