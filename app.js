@@ -7,7 +7,7 @@ const aboutContent = "Hac habitasse platea dictumst vestibulum rhoncus est pelle
 const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rhoncus urna neque viverra justo nec ultrices. Arcu dui vivamus arcu felis bibendum. Consectetur adipiscing elit duis tristique. Risus viverra adipiscing at in tellus integer feugiat. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Consequat interdum varius sit amet mattis. Iaculis nunc sed augue lacus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Pulvinar elementum integer enim neque. Ultrices gravida dictum fusce ut placerat orci nulla. Mauris in aliquam sem fringilla ut morbi tincidunt. Tortor posuere ac ut consequat semper viverra nam libero.";
 
 const app = express();
-
+// view engine setup
 app.set("view engine", "ejs");
 
 
@@ -19,22 +19,25 @@ app.get("/", function(req, res) {
 
 app.get("/about", function(req, res) {
   res.render("about", {
-    about: aboutContent
+    aboutContent: aboutContent
   });
 });
 
 app.get("/contact", function(req, res) {
   res.render("contact", {
-    contact: contactContent
+    contactContent: contactContent
   });
 });
 
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+//Set public folder.
 app.use(express.static("public"));
 
-
+app.post("/about", function(req, res){
+  console.log(req);
+});
 
 
 app.listen(3000, function(req, res) {
