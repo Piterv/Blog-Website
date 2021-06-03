@@ -11,17 +11,32 @@ const app = express();
 app.set("view engine", "ejs");
 
 
-app.get("/", function(req, res){
-  res.render("home" , {StartingContent: homeStartingContent});
+app.get("/", function(req, res) {
+  res.render("home", {
+    StartingContent: homeStartingContent
+  });
 });
 
+app.get("/about", function(req, res) {
+  res.render("about", {
+    about: aboutContent
+  });
+});
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.get("/contact", function(req, res) {
+  res.render("contact", {
+    contact: contactContent
+  });
+});
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(express.static("public"));
 
 
 
 
-app.listen(3000, function(req, res){
+app.listen(3000, function(req, res) {
   console.log("Server is runing on port 3000");
 });
