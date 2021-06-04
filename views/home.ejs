@@ -3,4 +3,12 @@
 <h1>Home</h1>
 <p><%= StartingContent %></p>
 
+
+<% for(let i=0; i < posts.length; i++){%>
+  <div class="box">
+  <h1><%= posts[i].title%></h1>
+  <p><%= posts[i].content%></p>
+</div>
+<% } %>
+
 <%- include("partials/footer") -%>

@@ -2,8 +2,13 @@
 
 <h1>Compose</h1>
 
-<form class="" action="/compose" method="post">
-  <input type="text" name="postTitle">
-  <button type="submit">Publish</button>
+<form action="/compose" method="post" name="postCompouse">
+  <div class="form-group">
+    <label for="FormTitleImput" >Title</label>
+    <input type="text" class="form-control" id="FormTitleImput" name="postTitle">
+    <label for="exampleFormControlTextarea1">Post</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="postBody"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary" >Publish</button>
 </form>
 <%- include("partials/footer") -%>
